@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "nodemon": "^3.0.3"
-  }
+  },
+  "name": "odinproject_projects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "seigfred",
+  "license": "ISC",
+  "description": ""
 }
