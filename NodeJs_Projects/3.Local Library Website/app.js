@@ -8,9 +8,37 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 
+// Database
+//mongodb://localhost:27017
+const mongoose = require('mongoose');
+mongoose.set("strictQuery", false);
+// const mongoDB = "mongodb://localhost:27017/local_library";
+
+mongoose.connect('mongodb://localhost:27017/local_library', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+const firstAuthor = {
+    first_name: 'Seigfred',
+    family_name: 'Sayson',
+    date_of_birth: new Date('September 1, 1980'),
+    date_of_death: new Date('July 1, 2022')
+};
+
+const Author = require('./models/author');
+
+Author.create(firstAuthor).then((err, data) => {
+    if(err) {
+        console.log(err);
+    } else {
+        console.log("Succes")
+    }
+});
+
+
 // Routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const { main } = require('ejs-layout');
 
 
 // View Engine Setup
