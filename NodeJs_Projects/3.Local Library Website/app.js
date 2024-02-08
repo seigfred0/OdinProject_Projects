@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 mongoose.set("strictQuery", false);
 // const mongoDB = "mongodb://localhost:27017/local_library";
 
-mongoose.connect('mongodb://localhost:27017/local_library', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/local_library');
 
 
 const firstAuthor = {
