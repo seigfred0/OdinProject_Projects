@@ -2,16 +2,26 @@ const express = require('express');
 const router = express.Router();
 
 
+// const currentDate = new Date();
+//     const formattedDate = currentDate.toLocaleDateString('en-US', {
+//         day: 'numeric',
+//         month: 'short',
+//         year: 'numeric'
+//     });
+
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString()
+
 const messages = [
     {
         text: "Hi there!",
         user: "Amando",
-        added: new Date()
+        added: formattedDate
     },
     {
         text: "Hello World!",
         user: "Charles",
-        added: new Date()
+        added: formattedDate
     }
 ];
 
@@ -31,7 +41,7 @@ router.post("/new", (req, res) => {
     messages.push({
         user: req.body.author,
         text: req.body.text,
-        added: new Date()
+        added: formattedDate
     });
 
     res.redirect('/');

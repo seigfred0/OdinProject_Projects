@@ -1,0 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+/* font-family: 'Roboto', sans-serif; */
+
+
+:root {
+    --black: #272727;
+    --darkOrange: #D4AA7D;
+    --lightOrange: #EFD09E;
+    --pastelGreen: #D2D8B3;
+    --pastelBlue: #90A9B7;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    /* background-color: var(--pastelBlue); */
+    font-family: 'Roboto', sans-serif;
+   
+}
+
+.wrapper {
+   
+    max-width: 900px;
+    margin: 0 auto;
+ 
+    padding: 1em;
+    
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header i {
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    background-color: var(--lightOrange);
+    border-radius: 17px;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+
+
+   display: grid;
+   grid-template-columns: 0.12fr 1fr;
+   grid-template-rows: 1fr 1fr;
+
+   grid-template-areas: 
+    'user date'
+    'text text';
+}
+
+.card-container {
+    /* background-color: red; */
+    padding: 1em;
+    border-left: 2px dashed black;
+    margin-top: 1em;
+}
+
+.card p {
+    font-size: 2rem;
+    color: rgb(73, 73, 73);
+    
+    font-weight: 100;
+    width: 100%;
+ 
+    grid-area: text;
+    margin-top: 0.3em;
+}
+
+.card span {
+    grid-area: date;
+    font-size: 0.75rem;
+    align-self: center;
+}
+
+.card h3 {
+    grid-area: user;
+    align-self: center;
+}
+
+
