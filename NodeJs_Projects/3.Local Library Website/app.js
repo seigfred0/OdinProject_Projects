@@ -6,7 +6,7 @@ const app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const layout = require('express-ejs-layouts');
 
 // Database
 //mongodb://localhost:27017
@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 mongoose.set("strictQuery", false);
 // const mongoDB = "mongodb://localhost:27017/local_library";
 
-mongoose.connect('mongodb://localhost:27017/local_library');
+mongoose.connect('mongodb://localhost:27017/test');
 
 
 const firstAuthor = {
@@ -38,14 +38,22 @@ Author.create(firstAuthor).then((err, data) => {
 // Routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const { main } = require('ejs-layout');
+const catalogRouter = require('./routes/catalog');
+const wiki = require('./routes/wiki');
+// const { main } = require('ejs-layout');
 
 
 // View Engine Setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(layout);
 
 
+
+app.use('/favicon.ico', (req, res) => {
+    // Respond with a 204 No Content status code
+    res.status(204).end();
+});
 
 // Middlewares
 app.use(logger("dev"));
@@ -57,7 +65,8 @@ app.use(express.static(path.join(__dirname, "public")));
 // Route
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
+app.use("/catalog", catalogRouter);
+// app.use("/wiki", wiki);
 
 
 
