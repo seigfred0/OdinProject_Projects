@@ -17,22 +17,28 @@ mongoose.set("strictQuery", false);
 mongoose.connect('mongodb://localhost:27017/test');
 
 
-const firstAuthor = {
-    first_name: 'Seigfred',
-    family_name: 'Sayson',
-    date_of_birth: new Date('September 1, 1980'),
-    date_of_death: new Date('July 1, 2022')
-};
+// const firstAuthor = {
+//     first_name: 'Seigfred',
+//     family_name: 'Sayson',
+//     date_of_birth: new Date('September 1, 1980'),
+//     date_of_death: new Date('July 1, 2022')
+// };
 
-const Author = require('./models/author');
+// const Author = require('./models/author');
 
-Author.create(firstAuthor).then((err, data) => {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log("Succes")
-    }
-});
+// Author.create(firstAuthor).then((err, data) => {
+//     if(err) {
+//         console.log(err);
+//     } else {
+//         console.log("Succes")
+//     }
+// });
+
+// View Engine Setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.use(layout);
+
 
 
 // Routes
@@ -43,10 +49,6 @@ const wiki = require('./routes/wiki');
 // const { main } = require('ejs-layout');
 
 
-// View Engine Setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-app.use(layout);
 
 
 

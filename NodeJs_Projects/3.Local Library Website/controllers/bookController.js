@@ -34,13 +34,14 @@ exports.index = asyncHandler(async (req, res, next) => {
 
 // Display list of all books.
 exports.book_list = asyncHandler(async (req, res, next) => {
-  const allBooks = await Book.find({}, "title author")
-    .sort({ title: 1 })
-    .populate("author")
-    .exec();
 
- 
-  res.render("book_list", { title: "Book List", book_list: allBooks})
+  const allBooks = await Book.find({}, "title author")
+  .sort({ title: 1 })
+  .populate("author")
+  .exec();
+  res.render("book_list", { title: "Book List", book_list: allBooks })
+
+  
 });
 
 // Display detail page for a specific book.
@@ -50,7 +51,7 @@ exports.book_detail = asyncHandler(async (req, res, next) => {
 
 // Display book create form on GET.
 exports.book_create_get = asyncHandler(async (req, res, next) => {
-  // res.send("NOT IMPLEMENTED: Book create GET");
+  res.send("NOT IMPLEMENTED: Book create GET");
 });
 
 // Handle book create on POST.
